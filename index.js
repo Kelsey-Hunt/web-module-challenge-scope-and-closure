@@ -30,12 +30,16 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+  Counter 1 nests a function within another function and the variable 'count' can only be accessed within the counterMaker and counter functions. It also stores the value of count in counter(), where it can't be changed by code written outside of the counter function.
+  Count 2 declares the variable on a global scope, so it can be accessed and changed by any other code that follows
   
   2. Which of the two uses a closure? How can you tell?
+  Counter 1 code uses a closure when count is accessed by an inner function. You can tell counter 1 uses a closure because it has a function accessing variables outside of itself.
   
-  3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
-*/
+  3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?  
+  Counter1 would be more useful while writing more complex code or working with others because it keeps the value of count safe within the function. You would be less likely to accidentally change the value of count somewhere else. 
+  Counter2 works fine here because there's no other code to accidentally change the value of count. This method works better if you're writing something simple and working on your own.
+  */
 
 // counter1 code
 function counterMaker() {
@@ -46,6 +50,7 @@ function counterMaker() {
 }
 
 const counter1 = counterMaker();
+
 
 // counter2 code
 let count = 0;
