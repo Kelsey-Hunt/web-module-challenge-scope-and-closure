@@ -73,7 +73,7 @@ function inning(){
     let randomScore = Math.floor(Math.random() * 2);
     return randomScore;
 }
-console.log(inning());
+
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -89,9 +89,21 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
+function finalScore(inningCb, inningsPlayed){
+  const finalScore = {
+    Home: 0,
+    Away: 0,
+  };
+  for (let h = 0; h < inningsPlayed; h++) {
+    finalScore.Home = finalScore.Home + inningCb();
+  }
+  for(let a = 0; a < inningsPlayed; a++) {
+    finalScore.Away = finalScore.Away + inningCb();
+  }
+  return finalScore;
 }
+
+
 
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
