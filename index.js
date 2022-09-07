@@ -119,10 +119,16 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-
+function getInningScore(inningCb) {
+  const inningScore = {
+    Home: 0,
+    Away: 0,
+  };
+  inningScore.Home = inningScore.Home + inningCb();
+  inningScore.Away = inningScore.Away + inningCb();
+  return inningScore;
 }
+
 
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
