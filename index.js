@@ -171,9 +171,39 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+
+function scoreboard(inningScoreCb, inningCb, inningsPlayed) {
+  const scoreboard = [];
+  let homeScore = 0;
+  let awayScore = 0;
+  let finalHome = 0;
+  let finalAway = 0;
+  let inning = 0;
+  for(let i = 0; i < inningsPlayed; i++) {
+    if(i < inningsPlayed - 1){
+      inning = inning + 1;
+      homeScore = (inningScoreCb(inningCb)).Home;
+      awayScore = awayScore = (inningScoreCb(inningCb)).Away;
+      finalHome = finalHome + homeScore;
+      finalAway = finalAway + awayScore;
+      scoreboard.push("Inning " + inning + ": Away " + awayScore + " - Home " + homeScore);
+    } else if(i = inningsPlayed) {
+      inning = inning + 1;
+      homeScore = (inningScoreCb(inningCb)).Home;
+      awayScore = awayScore = (inningScoreCb(inningCb)).Away;
+      finalHome = finalHome + homeScore;
+      finalAway = finalAway + awayScore;
+      scoreboard.push("Inning " + inning + ": Away " + awayScore + " - Home " + homeScore);
+      if(finalHome === finalAway){
+        scoreboard.push("This game will require extra innings: Away " + finalAway + " - Home " + finalHome);
+      } else {
+        scoreboard.push("Final Score: Away " + finalAway + " - Home " + finalHome);
+      }//if statement 2
+    }//if statement 1
+  }//for loop
+  return scoreboard;
+}//scoreboard function
+console.log(scoreboard(getInningScore, inning, 9));
 
 
 
