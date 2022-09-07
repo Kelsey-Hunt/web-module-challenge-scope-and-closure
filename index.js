@@ -70,7 +70,7 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(){
-    let randomScore = Math.floor(Math.random() * 2);
+    let randomScore = Math.floor(Math.random() * 3);
     return randomScore;
 }
 
@@ -198,13 +198,13 @@ function scoreboard(inningScoreCb, inningCb, inningsPlayed) {
         scoreboard.push("This game will require extra innings: Away " + finalAway + " - Home " + finalHome);
       } else {
         scoreboard.push("Final Score: Away " + finalAway + " - Home " + finalHome);
-      }//if statement 2
-    }//if statement 1
-  }//for loop
+      }
+    }
+  }
   return scoreboard;
-}//scoreboard function
-console.log(scoreboard(getInningScore, inning, 9));
+}
 
+console.log(scoreboard(getInningScore, inning, 9));
 
 
 
